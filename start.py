@@ -13,24 +13,24 @@ game_frame[startrow][startcolumn] = 2
 def up(game_frame): #move up
 	i = 0
 	for h in range(0, 4): #iterate through all columns
-	if game_frame[i][h]!= 0 or game_frame[i+1][h]!= 0 or game_frame[i+2][h]!= 0 or game_frame[i+3]!= 0: #loop trhough, find non-zeros
-		if game_frame[i][h]==0:
-			while game_frame[i][h]==0: #loop till item 1 becomes non-zero
-				game_frame[i][h] = game_frame[i+1][h]
-				game_frame[i+1][h] = game_frame[i+2][h]
-				game_frame[i+2][h] = game_frame[i+3][h]
-				game_frame[i+3][h] = 0
+		if game_frame[i][h]!= 0 or game_frame[i+1][h]!= 0 or game_frame[i+2][h]!= 0 or game_frame[i+3]!= 0: #loop through, find non-zeros
+			if game_frame[i][h]==0:
+				while game_frame[i][h]==0: #loop till item 1 becomes non-zero
+					game_frame[i][h] = game_frame[i+1][h]
+					game_frame[i+1][h] = game_frame[i+2][h]
+					game_frame[i+2][h] = game_frame[i+3][h]
+					game_frame[i+3][h] = 0
 
-		if game_frame[i+1][h]==0 and (game_frame[i+2][h]!= 0 or game_frame[i+3][h]!=0): #check if 2nd item is zero followed by non-zeros
-			while game_frame[i+1][h]==0: #loop till item 2 becomes non-zero
-				game_frame[i+1][h] = game_frame[i+2][h]
-				game_frame[i+2][h] = game_frame[i+3][h]
-				game_frame[i+3][h] = 0
+			if game_frame[i+1][h]==0 and (game_frame[i+2][h]!= 0 or game_frame[i+3][h]!=0): #check if 2nd item is zero followed by non-zeros
+				while game_frame[i+1][h]==0: #loop till item 2 becomes non-zero
+					game_frame[i+1][h] = game_frame[i+2][h]
+					game_frame[i+2][h] = game_frame[i+3][h]
+					game_frame[i+3][h] = 0
 
-		if game_frame[i+2][h]==0 and game_frame[i+3][h]!= 0 #check if 3rd member is zero followed by non-zeros
-			while game_frame[i+2]==0: #loop till item 3 becomes non-zero
-				game_frame[i+2] = game_frame[i+3]
-				game_frame[i+3][h] =0 
+			if game_frame[i+2][h]==0 and game_frame[i+3][h]!= 0: #check if 3rd member is zero followed by non-zeros
+				while game_frame[i+2]==0: #loop till item 3 becomes non-zero
+					game_frame[i+2] = game_frame[i+3]
+					game_frame[i+3][h] =0 
 
 				#------------------------------------------#
 
@@ -61,24 +61,24 @@ def up_sum(game_frame):
 def down(game_frame):
 	i = 0
 	for h in range(0, 4): #iterate through all columns
-	if game_frame[i][h]!= 0 or game_frame[i+1][h]!= 0 or game_frame[i+2][h]!= 0 or game_frame[i+3]!= 0: #loop trhough, find non-zeros
-		if game_frame[i+3][h]==0: #check if item 4 is zero
-			while game_frame[i+3][h]==0: #loop till item 4 becomes non-zero
-				game_frame[i+3][h] = game_frame[i+1][h]
-				game_frame[i+2][h] = game_frame[i+2][h]
-				game_frame[i+1][h] = game_frame[i+3][h]
-				game_frame[i][h] = 0
+		if game_frame[i][h]!= 0 or game_frame[i+1][h]!= 0 or game_frame[i+2][h]!= 0 or game_frame[i+3]!= 0: #loop trhough, find non-zeros
+			if game_frame[i+3][h]==0: #check if item 4 is zero
+				while game_frame[i+3][h]==0: #loop till item 4 becomes non-zero
+					game_frame[i+3][h] = game_frame[i+1][h]
+					game_frame[i+2][h] = game_frame[i+2][h]
+					game_frame[i+1][h] = game_frame[i+3][h]
+					game_frame[i][h] = 0
 
-		if game_frame[i+2][h]==0 and (game_frame[i+1][h]!= 0 or game_frame[i][h]!=0) #check if item 3 is zero followed by non-zeros
-			while game_frame[i+1][h]==0: #loop till item 3 becomes non-zero
-				game_frame[i+2][h] = game_frame[i+1][h]
-				game_frame[i+1][h] = game_frame[i][h]
-				game_frame[i][h] = 0
-		
-		if game_frame[i+1][h]==0 and game_frame[i][h]!= 0: #check if item 2 is zero followed by non-zeros
-			while game_frame[i+2]==0: #loop till item 3 becomes non-zero
-				game_frame[i+2] = game_frame[i][h]
-				game_frame[i][h] =0 
+			if game_frame[i+2][h]==0 and (game_frame[i+1][h]!= 0 or game_frame[i][h]!=0): #check if item 3 is zero followed by non-zeros
+				while game_frame[i+1][h]==0: #loop till item 3 becomes non-zero
+					game_frame[i+2][h] = game_frame[i+1][h]
+					game_frame[i+1][h] = game_frame[i][h]
+					game_frame[i][h] = 0
+			
+			if game_frame[i+1][h]==0 and game_frame[i][h]!= 0: #check if item 2 is zero followed by non-zeros
+				while game_frame[i+2]==0: #loop till item 3 becomes non-zero
+					game_frame[i+2] = game_frame[i][h]
+					game_frame[i][h] =0 
 
 			#-----------------------------------------------#
 
@@ -176,7 +176,6 @@ def right(game_frame):
 					game_frame[i][h+1] = game_frame[i][h] #loop till item 2 becomes non-zero
 					game_frame[i][h] = 0
 
-
 			#----------------------------------------------#
 
 def right_sum(game_frame):
@@ -212,6 +211,7 @@ while True:
 	print game_frame[2][0], "\t", game_frame[2][1], "\t", game_frame[2][2], "\t", game_frame[2][3], "\n"
 	print game_frame[3][0], "\t", game_frame[3][1], "\t", game_frame[3][2], "\t", game_frame[3][3], "\n"
 	move_next = raw_input("Please choose your move: ")
+	
 	if move_next == "a":
 		up(game_frame)
 		up_sum(game_frame)
@@ -220,11 +220,11 @@ while True:
 		down(game_frame)
 		down_sum(game_frame)
 
-	elif move_next == "d"
+	elif move_next == "d":
 		left(game_frame)
 		left_sum(game_frame)
 
-	elif move_next == "f"
+	elif move_next == "f":
 		right(game_frame)
 		right_sum(game_frame)
 
@@ -260,8 +260,3 @@ while True:
 	print "CONGRATS!!! Score: ", str(score), "score"
 	print "\n\n"
 	print "Number of tries: ", str(attempt_num)
-
-
-
-				
-		

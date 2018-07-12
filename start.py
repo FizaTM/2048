@@ -85,20 +85,20 @@ def down(game_frame):
 def down_sum(game_frame):
 	global score
 	for h in range(0,4): #iterate through all columns
-		if game_frame[i+3][h] == game_frame[i+2][j]: #check if item 3 & 4 are the same
+		if game_frame[i+3][h] == game_frame[i+2][h]: #check if item 3 & 4 are the same
 			game_frame[i+3][h] = game_frame[i+3][h] + game_frame[i+2][h]
 			score += game_frame[i+3][h] **2 #add points
 			game_frame[i+2][h] = game_frame[i+1][h] #move item 2 down
 			game_frame[i+1][h] = game_frame[i][h] #move item 1 down
 			game_frame[i][h] = 0 #set item 1 to zero/empty
 
-		if game_frame[i+2][h] == game_frame[i+1][j]: #check if item 3 & 4 are the same
+		if game_frame[i+2][h] == game_frame[i+1][h]: #check if item 3 & 4 are the same
 			game_frame[i+2][h] = game_frame[i+2][h] + game_frame[i+1][h]
 			score += game_frame[i+2][h] **2 #add points
 			game_frame[i+1][h] = game_frame[i][h] #move item 1 down
 			game_frame[i][h] = 0 #set item 1 to zero/empty
 
-		if game_frame[i+1][h] == game_frame[i+1][j]: #check if item 1 & 2 are the same
+		if game_frame[i+1][h] == game_frame[i+1][h]: #check if item 1 & 2 are the same
 			game_frame[i+2][h] = game_frame[i+2][h] + game_frame[i+1][h]
 			score += game_frame[i+2][h] **2 #add points
 			game_frame[i][h] = 0 #set item 1 to zero/empty
